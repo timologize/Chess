@@ -14,7 +14,7 @@
             "type": "java",
             "name": "Launch JChess",
             "request": "launch",
-            "mainClass": "com.chess.JChess",
+            "mainClass": "com.chess.JavaChess",
             "projectName": "Chess_71b169d2"
         }
     ]

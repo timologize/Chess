@@ -1,23 +1,27 @@
-package com.chess.engine.pieces;
+package com.Chess.engine.pieces;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.chess.engine.Alliance;
-import com.chess.engine.board.Board;
-import com.chess.engine.board.BoardUtils;
-import com.chess.engine.board.Move;
-import com.chess.engine.board.Tile;
-import com.chess.engine.board.Move.AttackMove;
-import com.chess.engine.board.Move.MajorMove;
+import com.Chess.engine.Alliance;
+import com.Chess.engine.board.Board;
+import com.Chess.engine.board.BoardUtils;
+import com.Chess.engine.board.Move;
+import com.Chess.engine.board.Tile;
+import com.Chess.engine.board.Move.MajorAttackMove;
+import com.Chess.engine.board.Move.MajorMove;
 import com.google.common.collect.ImmutableList;
 
 public class Knight extends Piece {
     private final static int[] CANDIDATE_MOVE_COORDINATES = {-17, -15, -10, -6, 6, 10, 15, 17};
 
     public Knight(final int piecePosition, final Alliance pieceAlliance) {
-        super(PieceType.KNIGHT, piecePosition, pieceAlliance);
+        super(PieceType.KNIGHT, piecePosition, pieceAlliance, true);
+    }
+
+    public Knight(final int piecePosition, final Alliance pieceAlliance, final boolean isFirstMove) {
+        super(PieceType.KNIGHT, piecePosition, pieceAlliance, isFirstMove);
     }
 
     @Override
@@ -26,7 +30,7 @@ public class Knight extends Piece {
         final List<Move> legalMoves = new ArrayList<>();
 
         for(final int currentCandidateOffset: CANDIDATE_MOVE_COORDINATES) {
-            final int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset;
+            final int candidateDestinationCoordinate =   this.piecePosition + currentCandidateOffset;
           
             if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {
                 if (isFirstColumnExclusion(this.piecePosition, currentCandidateOffset) ||
@@ -46,7 +50,7 @@ public class Knight extends Piece {
                     final Alliance pieceAlliance = pieceAtDestination.getPieceAlliance();
                    
                     if(this.pieceAlliance != pieceAlliance) {
-                        legalMoves.add(new AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
+                        legalMoves.add(new MajorAttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
                     }
                 }
             }
@@ -56,7 +60,7 @@ public class Knight extends Piece {
 
     @Override
     public Knight movePiece(final Move move) {
-        return new Knight(move.getDestinationCoordinate(), move.getMovedPiece().getPieceAlliance());
+        return new Knight(move.getDestinationCoordinate(), move.getMovedPiece().getPieceAlliance(), false);
     }
 
     @Override

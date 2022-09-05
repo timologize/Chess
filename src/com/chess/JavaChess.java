@@ -1,13 +1,13 @@
-package com.chess;
+package com.Chess;
 
-import com.chess.engine.board.Board;
-import com.chess.gui.Table;
+import com.Chess.engine.board.Board;
+import com.Chess.gui.Table;
 
-public class JChess {
+public class JavaChess {
     public static void main(String[] args) {
         Board board = Board.createStandardBoard();
         System.out.println(board);
 
-        Table table = new Table();
+        Table.get().show();
     }
 }

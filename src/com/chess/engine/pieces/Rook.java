@@ -1,23 +1,27 @@
-package com.chess.engine.pieces;
+package com.Chess.engine.pieces;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.chess.engine.Alliance;
-import com.chess.engine.board.Board;
-import com.chess.engine.board.BoardUtils;
-import com.chess.engine.board.Move;
-import com.chess.engine.board.Tile;
-import com.chess.engine.board.Move.AttackMove;
-import com.chess.engine.board.Move.MajorMove;
+import com.Chess.engine.Alliance;
+import com.Chess.engine.board.Board;
+import com.Chess.engine.board.BoardUtils;
+import com.Chess.engine.board.Move;
+import com.Chess.engine.board.Tile;
+import com.Chess.engine.board.Move.MajorAttackMove;
+import com.Chess.engine.board.Move.MajorMove;
 import com.google.common.collect.ImmutableList;
 
 public class Rook extends Piece {
     private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-1, 1, -8, 8};
     
     public Rook(final int piecePosition, final Alliance pieceAlliance) {
-        super(PieceType.ROOK, piecePosition, pieceAlliance);
+        super(PieceType.ROOK, piecePosition, pieceAlliance, true);
+    }
+
+    public Rook(final int piecePosition, final Alliance pieceAlliance, final boolean isFirstMove) {
+        super(PieceType.ROOK, piecePosition, pieceAlliance, isFirstMove);
     }
 
     @Override
@@ -46,7 +50,7 @@ public class Rook extends Piece {
                         final Alliance pieceAlliance = pieceAtDestination.getPieceAlliance();
                     
                         if(this.pieceAlliance != pieceAlliance) {
-                            legalMoves.add(new AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
+                            legalMoves.add(new MajorAttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
                         }
                         break;
                     }
@@ -64,7 +68,7 @@ public class Rook extends Piece {
 
     @Override
     public Rook movePiece(final Move move) {
-        return new Rook(move.getDestinationCoordinate(), move.getMovedPiece().getPieceAlliance());
+        return new Rook(move.getDestinationCoordinate(), move.getMovedPiece().getPieceAlliance(), false);
     }
 
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset) {

@@ -1,4 +1,4 @@
-package com.chess.engine.board;
+package com.Chess.engine.board;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,22 +6,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.chess.engine.Alliance;
-import com.chess.engine.pieces.Bishop; 
-import com.chess.engine.pieces.King;
-import com.chess.engine.pieces.Knight;
-import com.chess.engine.pieces.Pawn;
-import com.chess.engine.pieces.Piece;
-import com.chess.engine.pieces.Queen;
-import com.chess.engine.pieces.Rook;
-import com.chess.engine.player.BlackPlayer;
-import com.chess.engine.player.Player;
-import com.chess.engine.player.WhitePlayer;
+import com.Chess.engine.Alliance;
+import com.Chess.engine.pieces.Bishop;
+import com.Chess.engine.pieces.King;
+import com.Chess.engine.pieces.Knight;
+import com.Chess.engine.pieces.Pawn;
+import com.Chess.engine.pieces.Piece;
+import com.Chess.engine.pieces.Queen;
+import com.Chess.engine.pieces.Rook;
+import com.Chess.engine.player.BlackPlayer;
+import com.Chess.engine.player.Player;
+import com.Chess.engine.player.WhitePlayer;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 
 public class Board {
-
     private final List<Tile> gameBoard;
     private final Collection<Piece> whitePieces;
     private final Collection<Piece> blackPieces;
@@ -30,10 +29,13 @@ public class Board {
     private final BlackPlayer blackPlayer;
     private final Player currentPlayer;
 
+    private final Pawn enPassantPawn;
+
     private Board(final Builder builder) {
         this.gameBoard = createGameBoard(builder);
         this.whitePieces = calculateActivePieces(this.gameBoard, Alliance.WHITE);
         this.blackPieces = calculateActivePieces(this.gameBoard, Alliance.BLACK);
+        this.enPassantPawn = builder.enPassantPawn;
 
         final Collection<Move> whiteStandardLegalMoves = calculateLegalMoves(this.whitePieces);
         final Collection<Move> blacklStandardLegalMoves = calculateLegalMoves(this.blackPieces);
@@ -67,6 +69,10 @@ public class Board {
 
     public Player currentPlayer() {
         return this.currentPlayer;
+    }
+
+    public Pawn getEnPassantPawn() {
+        return this.enPassantPawn;
     }
 
     public Collection<Piece> getBlackPieces() {
@@ -123,7 +129,7 @@ public class Board {
         builder.setPiece(new Knight(1, Alliance.BLACK));
         builder.setPiece(new Bishop(2, Alliance.BLACK));
         builder.setPiece(new Queen(3, Alliance.BLACK));
-        builder.setPiece(new King(4, Alliance.BLACK));
+        builder.setPiece(new King(4, Alliance.BLACK, true, true));
         builder.setPiece(new Bishop(5, Alliance.BLACK));
         builder.setPiece(new Knight(6, Alliance.BLACK));
         builder.setPiece(new Rook(7, Alliance.BLACK));
@@ -148,7 +154,7 @@ public class Board {
         builder.setPiece(new Knight(57, Alliance.WHITE));
         builder.setPiece(new Bishop(58, Alliance.WHITE));
         builder.setPiece(new Queen(59, Alliance.WHITE));
-        builder.setPiece(new King(60, Alliance.WHITE));
+        builder.setPiece(new King(60, Alliance.WHITE, true, true));
         builder.setPiece(new Bishop(61, Alliance.WHITE));
         builder.setPiece(new Knight(62, Alliance.WHITE));
         builder.setPiece(new Rook(63, Alliance.WHITE));

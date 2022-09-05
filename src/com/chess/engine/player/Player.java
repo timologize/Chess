@@ -1,14 +1,15 @@
-package com.chess.engine.player;
+package com.Chess.engine.player;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.chess.engine.Alliance;
-import com.chess.engine.board.Board;
-import com.chess.engine.board.Move;
-import com.chess.engine.pieces.King;
-import com.chess.engine.pieces.Piece;
+import com.Chess.engine.Alliance;
+import com.Chess.engine.board.Board;
+import com.Chess.engine.board.Move;
+import com.Chess.engine.board.Move.NullMove;
+import com.Chess.engine.pieces.King;
+import com.Chess.engine.pieces.Piece;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 
@@ -57,6 +58,9 @@ public abstract class Player {
     }
 
     public boolean isMoveLegal(final Move move) {
+        if(move instanceof NullMove){
+            return false;
+        }
         return this.legalMoves.contains(move);
     }
 
@@ -79,12 +83,20 @@ public abstract class Player {
         return false;
     }
 
-    public boolean isInStalemate() {
+    public boolean isInStaleMate() {
         return !this.isInCheck && !hasEscapeMoves();
     }
 
-    public boolean isCastled() {
+    public boolean isQueenSideCastleCapable() {
         return false;
+    }
+
+    public boolean isKingSideCastleCapable() {
+        return this.playerKing.isKingSideCastleCapable();
+    }
+
+    public boolean isCastled() {
+        return this.playerKing.isQueenSideCastleCapable();
     }
 
     public MoveTransition makeMove(final Move move) {
@@ -106,7 +118,7 @@ public abstract class Player {
     public abstract Collection<Piece> getActivePieces();
     public abstract Alliance getAlliance();
     public abstract Player getOpponent();
-    protected abstract Collection<Move> calculateKingCastles(Collection<Move> playerLegals, Collection<Move> opponentLegals);
+    public abstract Collection<Move> calculateKingCastles(Collection<Move> playerLegals, Collection<Move> opponentLegals);
 }
 
 
