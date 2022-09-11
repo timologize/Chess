@@ -1,15 +1,15 @@
-package com.Chess.engine.player;
+package com.chess.engine.player;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import com.Chess.engine.Alliance;
-import com.Chess.engine.board.Board;
-import com.Chess.engine.board.Move;
-import com.Chess.engine.board.Move.NullMove;
-import com.Chess.engine.pieces.King;
-import com.Chess.engine.pieces.Piece;
+import com.chess.engine.Alliance;
+import com.chess.engine.board.Board;
+import com.chess.engine.board.Move;
+import com.chess.engine.board.Move.NullMove;
+import com.chess.engine.pieces.King;
+import com.chess.engine.pieces.Piece;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 

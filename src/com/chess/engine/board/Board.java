@@ -1,4 +1,4 @@
-package com.Chess.engine.board;
+package com.chess.engine.board;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,17 +6,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.Chess.engine.Alliance;
-import com.Chess.engine.pieces.Bishop;
-import com.Chess.engine.pieces.King;
-import com.Chess.engine.pieces.Knight;
-import com.Chess.engine.pieces.Pawn;
-import com.Chess.engine.pieces.Piece;
-import com.Chess.engine.pieces.Queen;
-import com.Chess.engine.pieces.Rook;
-import com.Chess.engine.player.BlackPlayer;
-import com.Chess.engine.player.Player;
-import com.Chess.engine.player.WhitePlayer;
+import com.chess.engine.Alliance;
+import com.chess.engine.pieces.Bishop;
+import com.chess.engine.pieces.King;
+import com.chess.engine.pieces.Knight;
+import com.chess.engine.pieces.Pawn;
+import com.chess.engine.pieces.Piece;
+import com.chess.engine.pieces.Queen;
+import com.chess.engine.pieces.Rook;
+import com.chess.engine.player.BlackPlayer;
+import com.chess.engine.player.Player;
+import com.chess.engine.player.WhitePlayer;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 

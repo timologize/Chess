@@ -1,6 +1,6 @@
-package com.Chess.engine.player.ai;
+package com.chess.engine.player.ai;
 
-import com.Chess.engine.board.Board;
+import com.chess.engine.board.Board;
 
 public interface BoardEvaluator {
     int evaluate(Board board, int depth);

@@ -1,10 +1,10 @@
-package com.Chess.gui;
+package com.chess.gui;
 
 import javax.swing.*;
 
-import com.Chess.engine.Alliance;
-import com.Chess.engine.player.Player;
-import com.Chess.gui.Table.PlayerType;
+import com.chess.engine.Alliance;
+import com.chess.engine.player.Player;
+import com.chess.gui.Table.PlayerType;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

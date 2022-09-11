@@ -1,4 +1,4 @@
-package com.Chess.engine.player;
+package com.chess.engine.player;
 
 public enum MoveStatus {
     DONE {

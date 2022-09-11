@@ -1,8 +1,8 @@
-package com.Chess.pgn;
+package com.chess.pgn;
 
-import com.Chess.engine.board.Board;
-import com.Chess.engine.board.BoardUtils;
-import com.Chess.engine.pieces.Pawn;
+import com.chess.engine.board.Board;
+import com.chess.engine.board.BoardUtils;
+import com.chess.engine.pieces.Pawn;
 
 public class FenUtillties {
     private FenUtillties() {

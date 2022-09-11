@@ -1,9 +1,9 @@
-package com.Chess.engine.board;
+package com.chess.engine.board;
 
-import com.Chess.engine.board.Board.Builder;
-import com.Chess.engine.pieces.Pawn;
-import com.Chess.engine.pieces.Piece;
-import com.Chess.engine.pieces.Rook;
+import com.chess.engine.board.Board.Builder;
+import com.chess.engine.pieces.Pawn;
+import com.chess.engine.pieces.Piece;
+import com.chess.engine.pieces.Rook;
 
 public abstract class Move {
     protected final Board board;

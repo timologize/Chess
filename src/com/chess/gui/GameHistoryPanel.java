@@ -1,14 +1,15 @@
-package com.Chess.gui;
+package com.chess.gui;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 
-import com.Chess.engine.board.Board;
-import com.Chess.engine.board.Move;
+import com.chess.engine.board.Board;
+import com.chess.engine.board.Move;
+
+import java.awt.*;
 
 
 public class GameHistoryPanel extends JPanel{

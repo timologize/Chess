@@ -1,17 +1,17 @@
-package com.Chess.gui;
+package com.chess.gui;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import com.Chess.engine.board.Board;
-import com.Chess.engine.board.BoardUtils;
-import com.Chess.engine.board.Move;
-import com.Chess.engine.board.Tile;
-import com.Chess.engine.pieces.King;
-import com.Chess.engine.pieces.Piece;
-import com.Chess.engine.player.MoveTransition;
-import com.Chess.engine.player.ai.MiniMax;
-import com.Chess.engine.player.ai.MoveStrategy;
+import com.chess.engine.board.Board;
+import com.chess.engine.board.BoardUtils;
+import com.chess.engine.board.Move;
+import com.chess.engine.board.Tile;
+import com.chess.engine.pieces.King;
+import com.chess.engine.pieces.Piece;
+import com.chess.engine.player.MoveTransition;
+import com.chess.engine.player.ai.MiniMax;
+import com.chess.engine.player.ai.MoveStrategy;
 import com.google.common.collect.Lists;
 
 import java.awt.*;

@@ -1,4 +1,4 @@
-package com.Chess.engine.board;
+package com.chess.engine.board;
 
 import java.util.Arrays;
 import java.util.Collections;

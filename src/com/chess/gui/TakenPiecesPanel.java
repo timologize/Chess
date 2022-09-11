@@ -1,11 +1,11 @@
-package com.Chess.gui;
+package com.chess.gui;
 
 import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 
-import com.Chess.engine.board.Move;
-import com.Chess.engine.pieces.Piece;
-import com.Chess.gui.Table.MoveLog;
+import com.chess.engine.board.Move;
+import com.chess.engine.pieces.Piece;
+import com.chess.gui.Table.MoveLog;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

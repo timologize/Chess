@@ -1,13 +1,13 @@
-package com.Chess.engine.player.ai;
+package com.chess.engine.player.ai;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.Chess.engine.board.Board;
-import com.Chess.engine.board.BoardUtils;
-import com.Chess.engine.board.Move.MoveFactory;
-import com.Chess.engine.player.MoveTransition;
+import com.chess.engine.board.Board;
+import com.chess.engine.board.BoardUtils;
+import com.chess.engine.board.Move.MoveFactory;
+import com.chess.engine.player.MoveTransition;
 
 public class testAi {
     
